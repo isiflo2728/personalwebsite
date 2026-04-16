@@ -22,7 +22,7 @@ body::before {
   inset: 0;
   background:
     radial-gradient(ellipse 900px 700px at 30% -8%, rgba(99, 88, 255, 0.13) 0%, transparent 58%),
-    radial-gradient(ellipse 700px 600px at 80% 108%, rgba(20, 90, 210, 0.07) 0%, transparent 55%);
+    radial-gradient(ellipse 100% 500px at 50% 110%, rgba(20, 90, 210, 0.09) 0%, transparent 65%);
   pointer-events: none;
   z-index: 0;
 }
