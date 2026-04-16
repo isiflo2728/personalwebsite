@@ -6,7 +6,7 @@ export default function IPad() {
 
   return (
     <div
-      className="fade-up"
+      className="fade-up device-ipad"
       style={{ animationDelay: "380ms", display: "flex", flexDirection: "column", alignItems: "center" }}
     >
       {/* iPad frame - landscape */}

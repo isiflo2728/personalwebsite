@@ -223,7 +223,7 @@ export default function MacBook() {
 
   return (
     <>
-      <div className="fade-up" style={{ animationDelay: "360ms", display: "flex", flexDirection: "column", alignItems: "center" }}>
+      <div className="fade-up device-macbook" style={{ animationDelay: "360ms", display: "flex", flexDirection: "column", alignItems: "center" }}>
         <div
           onMouseEnter={() => setHovered(true)}
           onMouseLeave={() => setHovered(false)}

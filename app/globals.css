@@ -95,3 +95,13 @@ body::before {
 .fade-up {
   animation: fadeUp 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
+
+/* Scale large device mockups down on small screens */
+@media (max-width: 639px) {
+  .device-macbook {
+    zoom: 0.57;
+  }
+  .device-ipad {
+    zoom: 0.62;
+  }
+}
