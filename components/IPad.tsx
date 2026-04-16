@@ -249,7 +249,7 @@ export default function IPad() {
         </div>
 
         {/* Hint - mobile only */}
-        <p className="xl:hidden" style={{ fontSize: 11.5, color: "rgba(255,255,255,0.25)", marginTop: 12, letterSpacing: "0.01em" }}>
+        <p className="stacked-only" style={{ fontSize: 11.5, color: "rgba(255,255,255,0.25)", marginTop: 12, letterSpacing: "0.01em" }}>
           tap to view
         </p>
       </div>

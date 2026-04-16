@@ -53,9 +53,9 @@ export default async function Home() {
         </div>
       </header>
 
-      {/* Devices - stacked on mobile, side-by-side on xl */}
+      {/* Devices - stacked on laptop screens, side-by-side on large displays */}
       <div className="w-full overflow-x-auto">
-        <div className="flex flex-col items-center gap-0 xl:flex-row xl:items-stretch xl:justify-center xl:gap-24 xl:px-16">
+        <div className="devices-layout">
 
           {/* iPhone */}
           <div className="flex flex-col items-center" style={{ flexShrink: 0 }}>
@@ -64,44 +64,28 @@ export default async function Home() {
                 <IPhone apps={apps} />
               </div>
               {apps.length > 0 && (
-                <p className="fade-up xl:hidden" style={{ animationDelay: "220ms", fontSize: 11.5, color: "rgba(255,255,255,0.25)", letterSpacing: "0.01em", marginTop: 12 }}>
+                <p className="fade-up stacked-only" style={{ animationDelay: "220ms", width: 270, textAlign: "center", fontSize: 11.5, color: "rgba(255,255,255,0.25)", letterSpacing: "0.01em", marginTop: 12 }}>
                   tap an app to learn more
                 </p>
               )}
             </div>
-            <p className="fade-up hidden xl:block" style={{ animationDelay: "220ms", fontSize: 11, fontWeight: 600, letterSpacing: "0.1em", color: "rgba(255,255,255,0.22)", textTransform: "uppercase", marginTop: 14 }}>Apps / Contact</p>
+            <p className="fade-up wide-only" style={{ animationDelay: "220ms", fontSize: 11, fontWeight: 600, letterSpacing: "0.1em", color: "rgba(255,255,255,0.22)", textTransform: "uppercase", marginTop: 14 }}>Apps / Contact</p>
           </div>
 
           {/* MacBook */}
           <div className="flex flex-col items-center" style={{ flexShrink: 0 }}>
-            {/* Mobile divider - outer div has no display style so xl:hidden works */}
-            <div className="xl:hidden">
-              <div style={{ display: "flex", alignItems: "center", gap: 14, margin: "52px 0 36px", width: 340 }}>
-                <div style={{ flex: 1, height: 1, background: "rgba(255,255,255,0.06)" }} />
-                <span style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.1em", color: "rgba(255,255,255,0.22)", textTransform: "uppercase" }}>Resume</span>
-                <div style={{ flex: 1, height: 1, background: "rgba(255,255,255,0.06)" }} />
-              </div>
-            </div>
             <div className="device-col-stage">
               <MacBook />
             </div>
-            <p className="fade-up hidden xl:block" style={{ animationDelay: "300ms", fontSize: 11, fontWeight: 600, letterSpacing: "0.1em", color: "rgba(255,255,255,0.22)", textTransform: "uppercase", marginTop: 14 }}>Resume</p>
+            <p className="fade-up" style={{ animationDelay: "300ms", fontSize: 11, fontWeight: 600, letterSpacing: "0.1em", color: "rgba(255,255,255,0.22)", textTransform: "uppercase", marginTop: 14 }}>Resume</p>
           </div>
 
           {/* iPad */}
           <div className="flex flex-col items-center" style={{ flexShrink: 0 }}>
-            {/* Mobile divider */}
-            <div className="xl:hidden">
-              <div style={{ display: "flex", alignItems: "center", gap: 14, margin: "52px 0 36px", width: 340 }}>
-                <div style={{ flex: 1, height: 1, background: "rgba(255,255,255,0.06)" }} />
-                <span style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.1em", color: "rgba(255,255,255,0.22)", textTransform: "uppercase" }}>About</span>
-                <div style={{ flex: 1, height: 1, background: "rgba(255,255,255,0.06)" }} />
-              </div>
-            </div>
             <div className="device-col-stage" style={{ paddingBottom: 60 }}>
               <IPad />
             </div>
-            <p className="fade-up hidden xl:block" style={{ animationDelay: "360ms", fontSize: 11, fontWeight: 600, letterSpacing: "0.1em", color: "rgba(255,255,255,0.22)", textTransform: "uppercase", marginTop: 14 }}>About</p>
+            <p className="fade-up" style={{ animationDelay: "360ms", fontSize: 11, fontWeight: 600, letterSpacing: "0.1em", color: "rgba(255,255,255,0.22)", textTransform: "uppercase", marginTop: 14 }}>About</p>
           </div>
 
         </div>
