@@ -122,7 +122,7 @@ export default async function Home() {
       >
         <div style={{ width: 180, height: 1, background: "rgba(255,255,255,0.05)" }} />
         <div style={{ display: "flex", alignItems: "center", gap: 6, flexWrap: "wrap", justifyContent: "center" }}>
-          <span style={{ fontSize: 12, color: "rgba(255,255,255,0.22)" }}>Built with Swift &amp; Next.js</span>
+          <span style={{ fontSize: 12, color: "rgba(255,255,255,0.22)" }}>by Isidoro Flores</span>
           <span style={{ color: "rgba(255,255,255,0.15)", fontSize: 12 }}>·</span>
           <a
             href="mailto:floresisidoro30@gmail.com"
