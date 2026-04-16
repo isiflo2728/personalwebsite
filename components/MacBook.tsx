@@ -179,12 +179,14 @@ function FinderWindow({ onOpen }: { onOpen: () => void }) {
         {/* Preview panel */}
         <div style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", padding: "14px 12px 10px", gap: 8, overflow: "hidden" }}>
           {/* PDF thumbnail */}
-          <div style={{ width: "100%", flex: 1, background: "#fff", borderRadius: 4, overflow: "hidden", boxShadow: "0 3px 14px rgba(0,0,0,0.55)" }}>
+          <div style={{ width: "100%", flex: 1, background: "#fff", borderRadius: 4, overflow: "hidden", boxShadow: "0 3px 14px rgba(0,0,0,0.55)", position: "relative" }}>
             <iframe
               src="/resume.pdf#toolbar=0&navpanes=0&scrollbar=0&view=FitH"
               style={{ width: "100%", height: "100%", border: "none", display: "block", pointerEvents: "none" }}
               title="Resume preview"
             />
+            {/* Blocks browser PDF toolbar from appearing on hover */}
+            <div style={{ position: "absolute", inset: 0 }} />
           </div>
           {/* File info */}
           <div style={{ textAlign: "center", flexShrink: 0 }}>
