@@ -214,6 +214,10 @@ export default function MacBook() {
   const [hovered, setHovered] = useState(false);
 
   const openModal = () => {
+    if (window.innerWidth < 1024) {
+      window.open("/resume.pdf", "_blank");
+      return;
+    }
     setOpen(true);
     requestAnimationFrame(() => requestAnimationFrame(() => setVisible(true)));
   };
