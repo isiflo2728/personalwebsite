@@ -1,65 +1,155 @@
-import Image from "next/image";
+import IPhone from "@/components/IPhone";
+import MacBook from "@/components/MacBook";
+import IPad from "@/components/IPad";
+import type { iTunesApp } from "@/types";
 
-export default function Home() {
+const ARTIST_ID = 1882161013;
+
+async function getApps(): Promise<iTunesApp[]> {
+  try {
+    const res = await fetch(
+      `https://itunes.apple.com/lookup?id=${ARTIST_ID}&entity=software`,
+      { next: { revalidate: 3600 } }
+    );
+    const data = await res.json();
+    return (data.results as iTunesApp[]).filter(
+      (r: iTunesApp & { wrapperType?: string }) => r.wrapperType === "software"
+    );
+  } catch {
+    return [];
+  }
+}
+
+export default async function Home() {
+  const apps = await getApps();
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <main className="relative z-10 flex flex-col items-center min-h-screen py-16 px-4" style={{ gap: 0 }}>
+
+      {/* Hero */}
+      <header className="text-center fade-up mb-10">
+        <h1
+          className="font-bold"
+          style={{ fontSize: "clamp(28px, 5vw, 42px)", letterSpacing: "-0.045em", lineHeight: 1.1 }}
+        >
+          Isidoro Flores
+        </h1>
+        <div
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            gap: 7,
+            marginTop: 12,
+            padding: "5px 14px",
+            borderRadius: 99,
+            background: "rgba(255,255,255,0.05)",
+            border: "1px solid rgba(255,255,255,0.09)",
+          }}
+        >
+          <span style={{ width: 7, height: 7, borderRadius: "50%", background: "#30d158", display: "inline-block", flexShrink: 0 }} />
+          <span style={{ fontSize: 12.5, color: "rgba(255,255,255,0.55)", letterSpacing: "0.03em" }}>
+            iOS Developer
+          </span>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
+      </header>
+
+      {/* iPhone */}
+      <div className="fade-up mb-4" style={{ animationDelay: "100ms" }}>
+        <IPhone apps={apps} />
+      </div>
+
+      {apps.length > 0 && (
+        <p
+          className="fade-up"
+          style={{ animationDelay: "220ms", fontSize: 11.5, color: "rgba(255,255,255,0.25)", marginBottom: 0, letterSpacing: "0.01em" }}
+        >
+          tap an app to learn more
+        </p>
+      )}
+
+      {/* Divider */}
+      <div
+        className="fade-up"
+        style={{
+          animationDelay: "280ms",
+          display: "flex",
+          alignItems: "center",
+          gap: 14,
+          margin: "52px 0 36px",
+          width: "100%",
+          maxWidth: 640,
+        }}
+      >
+        <div style={{ flex: 1, height: 1, background: "rgba(255,255,255,0.06)" }} />
+        <span style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.1em", color: "rgba(255,255,255,0.22)", textTransform: "uppercase" }}>
+          Resume
+        </span>
+        <div style={{ flex: 1, height: 1, background: "rgba(255,255,255,0.06)" }} />
+      </div>
+
+      {/* MacBook */}
+      <MacBook />
+
+      {/* About divider */}
+      <div
+        className="fade-up"
+        style={{
+          animationDelay: "340ms",
+          display: "flex",
+          alignItems: "center",
+          gap: 14,
+          margin: "52px 0 36px",
+          width: "100%",
+          maxWidth: 640,
+        }}
+      >
+        <div style={{ flex: 1, height: 1, background: "rgba(255,255,255,0.06)" }} />
+        <span style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.1em", color: "rgba(255,255,255,0.22)", textTransform: "uppercase" }}>
+          About
+        </span>
+        <div style={{ flex: 1, height: 1, background: "rgba(255,255,255,0.06)" }} />
+      </div>
+
+      {/* iPad */}
+      <IPad />
+
+      {/* Footer */}
+      <footer
+        className="fade-up"
+        style={{
+          animationDelay: "450ms",
+          marginTop: 56,
+          paddingBottom: 20,
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          gap: 14,
+        }}
+      >
+        <div style={{ width: 180, height: 1, background: "rgba(255,255,255,0.05)" }} />
+        <div style={{ display: "flex", alignItems: "center", gap: 6, flexWrap: "wrap", justifyContent: "center" }}>
+          <span style={{ fontSize: 12, color: "rgba(255,255,255,0.22)" }}>Built with Swift &amp; Next.js</span>
+          <span style={{ color: "rgba(255,255,255,0.15)", fontSize: 12 }}>·</span>
           <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+            href="mailto:floresisidoro30@gmail.com"
+            className="hover:text-white/65 transition-colors"
+            style={{ fontSize: 12, color: "rgba(255,255,255,0.35)", textDecoration: "none" }}
+          >
+            floresisidoro30@gmail.com
+          </a>
+          <span style={{ color: "rgba(255,255,255,0.15)", fontSize: 12 }}>·</span>
+          <a
+            href="https://github.com/isiflo2728"
             target="_blank"
             rel="noopener noreferrer"
+            className="hover:text-white/65 transition-colors"
+            style={{ fontSize: 12, color: "rgba(255,255,255,0.35)", textDecoration: "none" }}
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
+            github
           </a>
         </div>
-      </main>
-    </div>
+      </footer>
+
+    </main>
   );
 }
