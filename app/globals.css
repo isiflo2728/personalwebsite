@@ -105,3 +105,13 @@ body::before {
     zoom: 0.62;
   }
 }
+
+/* Scale for 3-column desktop layout */
+@media (min-width: 1280px) {
+  .device-macbook {
+    zoom: 0.76;
+  }
+  .device-ipad {
+    zoom: 0.80;
+  }
+}

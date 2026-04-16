@@ -53,65 +53,48 @@ export default async function Home() {
         </div>
       </header>
 
-      {/* iPhone */}
-      <div className="fade-up mb-4" style={{ animationDelay: "100ms" }}>
-        <IPhone apps={apps} />
+      {/* Devices - stacked on mobile, side-by-side on xl */}
+      <div className="w-full xl:overflow-x-auto">
+        <div className="flex flex-col items-center gap-0 xl:flex-row xl:items-end xl:justify-center xl:gap-24 xl:px-16">
+
+          {/* iPhone */}
+          <div className="flex flex-col items-center" style={{ flexShrink: 0 }}>
+            <div className="fade-up" style={{ animationDelay: "100ms" }}>
+              <IPhone apps={apps} />
+            </div>
+            {apps.length > 0 && (
+              <p className="fade-up" style={{ animationDelay: "220ms", fontSize: 11.5, color: "rgba(255,255,255,0.25)", letterSpacing: "0.01em", marginTop: 12 }}>
+                tap an app to learn more
+              </p>
+            )}
+          </div>
+
+          {/* MacBook */}
+          <div className="flex flex-col items-center" style={{ flexShrink: 0 }}>
+            {/* Mobile divider */}
+            <div className="xl:hidden" style={{ display: "flex", alignItems: "center", gap: 14, margin: "52px 0 36px", width: 340 }}>
+              <div style={{ flex: 1, height: 1, background: "rgba(255,255,255,0.06)" }} />
+              <span style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.1em", color: "rgba(255,255,255,0.22)", textTransform: "uppercase" }}>Resume</span>
+              <div style={{ flex: 1, height: 1, background: "rgba(255,255,255,0.06)" }} />
+            </div>
+            <MacBook />
+            <p className="fade-up hidden xl:block" style={{ animationDelay: "300ms", fontSize: 11, fontWeight: 600, letterSpacing: "0.1em", color: "rgba(255,255,255,0.22)", textTransform: "uppercase", marginTop: 14 }}>Resume</p>
+          </div>
+
+          {/* iPad */}
+          <div className="flex flex-col items-center" style={{ flexShrink: 0 }}>
+            {/* Mobile divider */}
+            <div className="xl:hidden" style={{ display: "flex", alignItems: "center", gap: 14, margin: "52px 0 36px", width: 340 }}>
+              <div style={{ flex: 1, height: 1, background: "rgba(255,255,255,0.06)" }} />
+              <span style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.1em", color: "rgba(255,255,255,0.22)", textTransform: "uppercase" }}>About</span>
+              <div style={{ flex: 1, height: 1, background: "rgba(255,255,255,0.06)" }} />
+            </div>
+            <IPad />
+            <p className="fade-up hidden xl:block" style={{ animationDelay: "360ms", fontSize: 11, fontWeight: 600, letterSpacing: "0.1em", color: "rgba(255,255,255,0.22)", textTransform: "uppercase", marginTop: 14 }}>About</p>
+          </div>
+
+        </div>
       </div>
-
-      {apps.length > 0 && (
-        <p
-          className="fade-up"
-          style={{ animationDelay: "220ms", fontSize: 11.5, color: "rgba(255,255,255,0.25)", marginBottom: 0, letterSpacing: "0.01em" }}
-        >
-          tap an app to learn more
-        </p>
-      )}
-
-      {/* Divider */}
-      <div
-        className="fade-up"
-        style={{
-          animationDelay: "280ms",
-          display: "flex",
-          alignItems: "center",
-          gap: 14,
-          margin: "52px 0 36px",
-          width: "100%",
-          maxWidth: 640,
-        }}
-      >
-        <div style={{ flex: 1, height: 1, background: "rgba(255,255,255,0.06)" }} />
-        <span style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.1em", color: "rgba(255,255,255,0.22)", textTransform: "uppercase" }}>
-          Resume
-        </span>
-        <div style={{ flex: 1, height: 1, background: "rgba(255,255,255,0.06)" }} />
-      </div>
-
-      {/* MacBook */}
-      <MacBook />
-
-      {/* About divider */}
-      <div
-        className="fade-up"
-        style={{
-          animationDelay: "340ms",
-          display: "flex",
-          alignItems: "center",
-          gap: 14,
-          margin: "52px 0 36px",
-          width: "100%",
-          maxWidth: 640,
-        }}
-      >
-        <div style={{ flex: 1, height: 1, background: "rgba(255,255,255,0.06)" }} />
-        <span style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.1em", color: "rgba(255,255,255,0.22)", textTransform: "uppercase" }}>
-          About
-        </span>
-        <div style={{ flex: 1, height: 1, background: "rgba(255,255,255,0.06)" }} />
-      </div>
-
-      {/* iPad */}
-      <IPad />
 
       {/* Footer */}
       <footer
