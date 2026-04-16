@@ -3,12 +3,12 @@ import MacBook from "@/components/MacBook";
 import IPad from "@/components/IPad";
 import type { iTunesApp } from "@/types";
 
-const ARTIST_ID = 1882161013;
+const APP_IDS = [6762229307, 6759991795, 6762153231];
 
 async function getApps(): Promise<iTunesApp[]> {
   try {
     const res = await fetch(
-      `https://itunes.apple.com/lookup?id=${ARTIST_ID}&entity=software`,
+      `https://itunes.apple.com/lookup?id=${APP_IDS.join(",")}&entity=software`,
       { next: { revalidate: 3600 } }
     );
     const data = await res.json();
