@@ -318,7 +318,7 @@ export default function MacBook() {
             justifyContent: "center",
             background: visible ? "rgba(0,0,0,0.88)" : "rgba(0,0,0,0)",
             transition: "background 0.3s ease",
-            padding: 24,
+            padding: "56px 12px 12px",
           }}
         >
           <button
@@ -350,7 +350,7 @@ export default function MacBook() {
             style={{
               width: "100%",
               maxWidth: 840,
-              height: "88vh",
+              height: "85dvh",
               borderRadius: 10,
               overflow: "hidden",
               transform: visible ? "scale(1) translateY(0)" : "scale(0.9) translateY(24px)",
