@@ -55,18 +55,20 @@ export default async function Home() {
 
       {/* Devices - stacked on mobile, side-by-side on xl */}
       <div className="w-full xl:overflow-x-auto">
-        <div className="flex flex-col items-center gap-0 xl:flex-row xl:items-end xl:justify-center xl:gap-24 xl:px-16">
+        <div className="flex flex-col items-center gap-0 xl:flex-row xl:items-stretch xl:justify-center xl:gap-24 xl:px-16">
 
           {/* iPhone */}
           <div className="flex flex-col items-center" style={{ flexShrink: 0 }}>
-            <div className="fade-up" style={{ animationDelay: "100ms" }}>
-              <IPhone apps={apps} />
+            <div className="device-col-stage">
+              <div className="fade-up" style={{ animationDelay: "100ms" }}>
+                <IPhone apps={apps} />
+              </div>
+              {apps.length > 0 && (
+                <p className="fade-up" style={{ animationDelay: "220ms", fontSize: 11.5, color: "rgba(255,255,255,0.25)", letterSpacing: "0.01em", marginTop: 12 }}>
+                  tap an app to learn more
+                </p>
+              )}
             </div>
-            {apps.length > 0 && (
-              <p className="fade-up" style={{ animationDelay: "220ms", fontSize: 11.5, color: "rgba(255,255,255,0.25)", letterSpacing: "0.01em", marginTop: 12 }}>
-                tap an app to learn more
-              </p>
-            )}
           </div>
 
           {/* MacBook */}
@@ -77,7 +79,9 @@ export default async function Home() {
               <span style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.1em", color: "rgba(255,255,255,0.22)", textTransform: "uppercase" }}>Resume</span>
               <div style={{ flex: 1, height: 1, background: "rgba(255,255,255,0.06)" }} />
             </div>
-            <MacBook />
+            <div className="device-col-stage">
+              <MacBook />
+            </div>
             <p className="fade-up hidden xl:block" style={{ animationDelay: "300ms", fontSize: 11, fontWeight: 600, letterSpacing: "0.1em", color: "rgba(255,255,255,0.22)", textTransform: "uppercase", marginTop: 14 }}>Resume</p>
           </div>
 
@@ -89,7 +93,9 @@ export default async function Home() {
               <span style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.1em", color: "rgba(255,255,255,0.22)", textTransform: "uppercase" }}>About</span>
               <div style={{ flex: 1, height: 1, background: "rgba(255,255,255,0.06)" }} />
             </div>
-            <IPad />
+            <div className="device-col-stage" style={{ paddingBottom: 60 }}>
+              <IPad />
+            </div>
             <p className="fade-up hidden xl:block" style={{ animationDelay: "360ms", fontSize: 11, fontWeight: 600, letterSpacing: "0.1em", color: "rgba(255,255,255,0.22)", textTransform: "uppercase", marginTop: 14 }}>About</p>
           </div>
 
