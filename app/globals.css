@@ -109,7 +109,7 @@ body::before {
 /* Fixed-height device columns so all devices share the same vertical center */
 @media (min-width: 1280px) {
   .device-col-stage {
-    height: 620px;
+    height: 680px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -117,12 +117,3 @@ body::before {
   }
 }
 
-/* Scale for 3-column desktop layout */
-@media (min-width: 1280px) {
-  .device-macbook {
-    zoom: 0.76;
-  }
-  .device-ipad {
-    zoom: 0.80;
-  }
-}

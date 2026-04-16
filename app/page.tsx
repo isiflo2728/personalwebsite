@@ -54,7 +54,7 @@ export default async function Home() {
       </header>
 
       {/* Devices - stacked on mobile, side-by-side on xl */}
-      <div className="w-full xl:overflow-x-auto">
+      <div className="w-full overflow-x-auto">
         <div className="flex flex-col items-center gap-0 xl:flex-row xl:items-stretch xl:justify-center xl:gap-24 xl:px-16">
 
           {/* iPhone */}
